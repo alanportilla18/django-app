@@ -63,6 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'academics', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'finance', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
