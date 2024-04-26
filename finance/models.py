@@ -17,7 +17,7 @@ class Client(models.Model):
         super(Client, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name + ' - ' + self.email + ' - ' + self.mobile
+        return self.first_name + '   ' + self.last_name + '    ' + self.email + '    ' + self.mobile
 
 
 class Product(models.Model):
@@ -29,10 +29,10 @@ class Product(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.name + ' (' + self.abbreviation + ')' + ' - ' + self.description
+        return self.name + ' (' + self.abbreviation + ')' + '    ' + self.description
 
 
-class Client_Product(models.Model):
+class Client_product(models.Model):
     id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
     id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     account_number = models.CharField(max_length=50)
@@ -41,10 +41,10 @@ class Client_Product(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.id_client.first_name + ' ' + self.id_client.last_name + ' - ' + self.id_product.name
+        return self.id_client.first_name + '    ' + self.id_client.last_name + '   ' + self.id_product.name
 
 
-class TransactionType(models.Model):
+class Transaction_type(models.Model):
     name = models.CharField(max_length=50)
     abbreviation = models.CharField(max_length=10)
     description = models.CharField(max_length=250)
@@ -53,18 +53,18 @@ class TransactionType(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.name + ' (' + self.abbreviation + ')' + ' - ' + self.description
+        return self.name + ' (' + self.abbreviation + ')' + '    ' + self.description
 
 
 class Transaction(models.Model):
     id_client_product = models.ForeignKey(
-        Client_Product, on_delete=models.CASCADE)
+        Client_product, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     id_transaction_type = models.ForeignKey(
-        TransactionType, on_delete=models.CASCADE)
+        Transaction_type, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.id_client_product.id_client.first_name + ' ' + self.id_client_product.id_client.last_name + ' ' + self.id_client_product.id_product.name + ' - ' + self.id_transaction_type.name + ' - ' + str(self.amount)
+        return self.id_client_product.id_client.first_name + '    ' + self.id_client_product.id_client.last_name + '    ' + self.id_client_product.id_product.name + ' - ' + self.id_transaction_type.name + ' - ' + str(self.amount)
