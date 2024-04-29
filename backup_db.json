@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "email": "portillacastillo56@gmail.com",
+        "password": "elmejordetodos",
+        "status": true
+    },
+    {
+        "id": 2,
+        "email": "pepeiso1314@gmail.com",
+        "password": "elmejordetodos",
+        "status": true
+    },
+    {
+        "id": 3,
+        "email": "pepeiso1314@gmail.com",
+        "password": "elmejordetodos",
+        "status": true
+    },
+    {
+        "id": 4,
+        "email": "adportilla.9062@unicemsag.edu.co",
+        "password": "elmejordetodos",
+        "status": true
+    }
+]
